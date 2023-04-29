@@ -89,7 +89,7 @@ export default function AddOn() {
                         <Link to='/select-plan' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base self-start  mt-auto mb-3' >
                             <button className='hover:text-marine-blue'>Go Back</button>
                         </Link>
-                        <Link to='/summary' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base self-end mt-auto mb-3 hover:bg-blue-500' >
+                        <Link to='/summary' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base self-end mt-auto mb-3 hover:bg-blue-500' onClick={plan.calculateSum}>
                             <button onClick={plan.calculateSum}>Next Step</button>
                         </Link>
                     </div>
@@ -98,7 +98,7 @@ export default function AddOn() {
                     <Link to='/select-plan' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base mo:ml-4' >
                         <button className='hover:text-marine-blue'>Go Back</button>
                     </Link>
-                    <Link to='/summary' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base hover:bg-blue-500 mo:mr-4' >
+                    <Link to='/summary' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base hover:bg-blue-500 mo:mr-4' onClick={plan.calculateSum}>
                         <button onClick={plan.calculateSum}>Next Step</button>
                     </Link>
                 </div>

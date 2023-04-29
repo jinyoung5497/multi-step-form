@@ -86,7 +86,7 @@ export default function SelectPlan() {
                         <p className={plan.yearly ? 'text-marine-blue font-bold' : 'text-gray-400 font-bold'}>Yearly</p>
                     </div>
                     <div className='flex place-content-between  mt-auto mo:hidden'>
-                        <Link to='/' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base self-start  mt-auto mb-3' >
+                        <Link to='/' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base self-start  mt-auto mb-3' onClick={plan.resetInput}>
                             <button onClick={plan.resetInput} className='hover:text-marine-blue'>Go Back</button>
                         </Link>
                         <Link to='/add-on' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base self-end mt-auto mb-3 hover:bg-blue-500' onClick={plan.btnAddon} >
@@ -95,7 +95,7 @@ export default function SelectPlan() {
                     </div>
                 </div>
                 <div className='flex place-content-between de:mt-auto de:hidden mo:bg-white mo:w-full mo:row-start-6 mo:h-16 mo:self-end mo:items-center'>
-                    <Link to='/' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base mo:ml-4' >
+                    <Link to='/' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base mo:ml-4' onClick={plan.resetInput}>
                         <button onClick={plan.resetInput} className='hover:text-marine-blue'>Go Back</button>
                     </Link>
                     <Link to='/add-on' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base hover:bg-blue-500 mo:mr-4' onClick={plan.btnAddon} >

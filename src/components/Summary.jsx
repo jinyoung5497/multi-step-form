@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import { sidebarDesktop, sidebarMobile } from '../assets'
 import { Link } from 'react-router-dom'
 import { usePlan } from './Plan'
@@ -60,7 +60,7 @@ export default function Summary() {
                                     <p className='text-marine-blue font-bold text-lg'>{plan.arcade && 'Arcade '}{plan.advanced && 'Advanced '}{plan.pro && 'Pro '}</p>
                                     <p className='text-marine-blue font-bold text-lg'>{plan.yearly ? '(Yearly)' : '(Monthly)'}</p>
                                 </div>
-                                <Link to='/select-plan'>
+                                <Link to='/select-plan' onClick={plan.reset}>
                                     <button className='text-gray-400 underline font-medium hover:text-marine-blue' onClick={plan.reset}>Change</button>
                                 </Link>
                             </div>
@@ -86,7 +86,7 @@ export default function Summary() {
                     </div>
 
                     <div className='flex place-content-between  mt-auto mo:hidden'>
-                        <Link to='/add-on' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-medium text-base self-start  mt-auto mb-3' >
+                        <Link to='/add-on' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-medium text-base self-start  mt-auto mb-3' onClick={plan.reset} >
                             <button onClick={plan.reset} className='hover:text-marine-blue'>Go Back</button>
                         </Link>
                         <Link to='/thanks'>
@@ -95,7 +95,7 @@ export default function Summary() {
                     </div>
                 </div>
                 <div className='flex place-content-between de:mt-auto de:hidden mo:bg-white mo:w-full mo:row-start-6 mo:h-16 mo:self-end mo:items-center'>
-                    <Link to='/add-on' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base mo:ml-4' >
+                    <Link to='/add-on' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base mo:ml-4' onClick={plan.reset}>
                         <button onClick={plan.reset} className='hover:text-marine-blue'>Go Back</button>
                     </Link>
                     <Link to='/thanks'>
