@@ -11,7 +11,6 @@ export const PlanProvider = ({ children }) => {
     const [largeStorage, setLargeStorage] = useState(false)
     const [customise, setCustomise] = useState(false)
     const [total, setTotal] = useState(0)
-    const [addon, setAddon] = useState(0)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -83,10 +82,6 @@ export const PlanProvider = ({ children }) => {
         }
     }
 
-    const resetBtn = () => {
-        setAddon(0)
-    }
-
     const resetInput = () => {
         setName('')
         setEmail('')
@@ -94,7 +89,7 @@ export const PlanProvider = ({ children }) => {
     }
 
     return (
-        <PlanContext.Provider value={{ yearly, toggleYearly, clickedArcade, clickedAdvanced, clickedPro, arcade, advanced, pro, getOnlineService, getLargeStorage, getCustomise, onlineService, largeStorage, customise, total, addon, btnAddon, resetBtn, getName, getEmail, getPhone, name, email, phone, checkInput, noError, resetInput }}>
+        <PlanContext.Provider value={{ yearly, toggleYearly, clickedArcade, clickedAdvanced, clickedPro, arcade, advanced, pro, getOnlineService, getLargeStorage, getCustomise, onlineService, largeStorage, customise, total, btnAddon, getName, getEmail, getPhone, name, email, phone, checkInput, noError, resetInput }}>
             {children}
         </PlanContext.Provider>
     )
