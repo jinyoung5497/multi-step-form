@@ -1,4 +1,4 @@
-import YourInfo from "./yourInfo"
+import YourInfo from "./YourInfo"
 import SelectPlan from "./SelectPlan"
 import AddOn from './AddOn'
 import Summary from './Summary'
