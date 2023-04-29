@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react'
+import React, { useState, createContext, useContext, useRef, useEffect } from 'react'
 
 const PlanContext = createContext(null)
 
@@ -15,6 +15,23 @@ export const PlanProvider = ({ children }) => {
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [noError, setNoError] = useState(true)
+    const [addon, setAddon] = useState(0)
+
+    const calculateSum = () => {
+        if (yearly) {
+            onlineService && setAddon(prev => prev + 10)
+            largeStorage && setAddon(prev => prev + 20)
+            customise && setAddon(prev => prev + 20)
+        } else {
+            onlineService && setAddon(prev => prev + 1)
+            largeStorage && setAddon(prev => prev + 2)
+            customise && setAddon(prev => prev + 2)
+        }
+    }
+
+    const reset = () => {
+        setAddon(0)
+    }
 
     const getName = (event) => {
         setName(event.target.value)
@@ -89,7 +106,7 @@ export const PlanProvider = ({ children }) => {
     }
 
     return (
-        <PlanContext.Provider value={{ yearly, toggleYearly, clickedArcade, clickedAdvanced, clickedPro, arcade, advanced, pro, getOnlineService, getLargeStorage, getCustomise, onlineService, largeStorage, customise, total, btnAddon, getName, getEmail, getPhone, name, email, phone, checkInput, noError, resetInput }}>
+        <PlanContext.Provider value={{ yearly, toggleYearly, clickedArcade, clickedAdvanced, clickedPro, arcade, advanced, pro, getOnlineService, getLargeStorage, getCustomise, onlineService, largeStorage, customise, total, btnAddon, getName, getEmail, getPhone, name, email, phone, checkInput, noError, resetInput, addon, calculateSum, reset }}>
             {children}
         </PlanContext.Provider>
     )

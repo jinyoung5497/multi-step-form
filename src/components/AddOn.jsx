@@ -90,7 +90,7 @@ export default function AddOn() {
                             <button className='hover:text-marine-blue'>Go Back</button>
                         </Link>
                         <Link to='/summary' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base self-end mt-auto mb-3 hover:bg-blue-500' >
-                            <button >Next Step</button>
+                            <button onClick={plan.calculateSum}>Next Step</button>
                         </Link>
                     </div>
                 </div>
@@ -99,7 +99,7 @@ export default function AddOn() {
                         <button className='hover:text-marine-blue'>Go Back</button>
                     </Link>
                     <Link to='/summary' className='bg-marine-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base hover:bg-blue-500 mo:mr-4' >
-                        <button >Next Step</button>
+                        <button onClick={plan.calculateSum}>Next Step</button>
                     </Link>
                 </div>
             </div>

@@ -5,25 +5,8 @@ import { usePlan } from './Plan'
 
 export default function Summary() {
     const plan = usePlan()
-    const [addon, setAddon] = useState(0)
-    const initRender = useRef(false)
-
-    const calculateSum = useEffect(() => {
-        if (initRender.current) {
-            if (plan.yearly) {
-                plan.onlineService && setAddon(prev => prev + 10)
-                plan.largeStorage && setAddon(prev => prev + 20)
-                plan.customise && setAddon(prev => prev + 20)
-            } else {
-                plan.onlineService && setAddon(prev => prev + 1)
-                plan.largeStorage && setAddon(prev => prev + 2)
-                plan.customise && setAddon(prev => prev + 2)
-            }
-        } else {
-            initRender.current = true
-        }
-    }, [])
-
+    
+    
     return (
         <main className='bg-Light-gray h-screen flex de:items-center justify-center'>
             <div className='bg-White de:w-[1100px] de:h-[700px] de:my-20 grid de:grid-cols-3 de:p-5 de:rounded-3xl mo:grid-rows-6 mo:grid-cols-1 mo:p-0 mo:w-full mo:h-full mo:justify-items-center mo:bg-Light-gray'>
@@ -78,7 +61,7 @@ export default function Summary() {
                                     <p className='text-marine-blue font-bold text-lg'>{plan.yearly ? '(Yearly)' : '(Monthly)'}</p>
                                 </div>
                                 <Link to='/select-plan'>
-                                    <button className='text-gray-400 underline font-medium hover:text-marine-blue' onClick={plan.resetBtn}>Change</button>
+                                    <button className='text-gray-400 underline font-medium hover:text-marine-blue' onClick={plan.reset}>Change</button>
                                 </Link>
                             </div>
                             <p className='text-marine-blue font-bold text-lg'>{plan.yearly ? `$${plan.total}/yr` : `$${plan.total}/mo`}</p>
@@ -99,12 +82,12 @@ export default function Summary() {
                     </section>
                     <div className='flex items-center place-content-between mt-5 mx-7'>
                         <p className='text-gray-400 font-medium '>{plan.yearly ? 'Total (per year)' : 'Total (per month)'}</p>
-                        <p className='text-Purplish-blue font-bold text-xl'>{plan.yearly ? `+$${plan.total + addon}/yr` : `+$${plan.total + addon}/mo`}</p>
+                        <p className='text-Purplish-blue font-bold text-xl'>{plan.yearly ? `+$${plan.total + plan.addon}/yr` : `+$${plan.total + plan.addon}/mo`}</p>
                     </div>
 
                     <div className='flex place-content-between  mt-auto mo:hidden'>
                         <Link to='/add-on' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-medium text-base self-start  mt-auto mb-3' >
-                            <button onClick={plan.resetBtn} className='hover:text-marine-blue'>Go Back</button>
+                            <button onClick={plan.reset} className='hover:text-marine-blue'>Go Back</button>
                         </Link>
                         <Link to='/thanks'>
                             <button className='bg-Purplish-blue rounded-lg w-fit p-3 px-5 text-White font-medium text-base self-end mt-auto mb-3 hover:bg-blue-600'>Confirm</button>
@@ -113,7 +96,7 @@ export default function Summary() {
                 </div>
                 <div className='flex place-content-between de:mt-auto de:hidden mo:bg-white mo:w-full mo:row-start-6 mo:h-16 mo:self-end mo:items-center'>
                     <Link to='/add-on' className='rounded-lg w-fit p-3 px-5 text-gray-400 font-semibold text-base mo:ml-4' >
-                        <button onClick={plan.resetBtn} className='hover:text-marine-blue'>Go Back</button>
+                        <button onClick={plan.reset} className='hover:text-marine-blue'>Go Back</button>
                     </Link>
                     <Link to='/thanks'>
                         <button className='bg-Purplish-blue rounded-lg w-fit p-3 px-5 text-White font-semibold text-base mo:mr-4 hover:bg-blue-600'>Confirm</button>
